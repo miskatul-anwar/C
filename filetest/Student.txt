@@ -1,0 +1,2 @@
+Name	Age	cgpa
+Miskat	12	5.00

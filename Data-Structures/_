@@ -1,0 +1,5 @@
+#include "miskat.h"
+struct node{
+  int value; //data stored in the next node
+  struct node *next; //pointer to the next node
+}
