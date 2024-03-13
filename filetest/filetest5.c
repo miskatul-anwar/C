@@ -1,5 +1,5 @@
 #include <stdio.h>
-int main(void){
+int main(void) {
   FILE *fptr;
   fptr = fopen("filetest.txt", "w");
   fputc('M', fptr);
