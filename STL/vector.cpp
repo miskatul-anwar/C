@@ -6,4 +6,5 @@ int main(int argc, char **argv) {
   cout << v[0] << endl;
   v.push_back(10);
   v.emplace_back(11);
+  v.emplace_back(12, 13);
 }
