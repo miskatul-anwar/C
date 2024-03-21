@@ -1,10 +1,17 @@
 #include "iostream"
 #include <vector>
 using namespace std;
-int main(int argc, char **argv) {
-  vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; // <---vector
-  cout << v[0] << endl;
-  v.push_back(10);
-  v.emplace_back(11);
-  v.emplace_back(12, 13);
+int main(void) {
+  vector<int> v;
+  v.push_back(2);
+  v.push_back(3);
+  v.push_back(4);
+  for (int num : v) {
+    cout << num << endl;
+  }
+  vector<int>::const_iterator it;
+  for (it = v.begin(); it != v.end(); it++) {
+    cout << *it << endl;
+  }
+  return 0;
 }
