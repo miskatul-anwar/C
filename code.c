@@ -1,5 +1,5 @@
 #include <stdio.h>
-main() {
+int main() {
   int a;
   char c[] = "Programming with C";
   for (a = 0; c[a] != '\0'; ++a) {
