@@ -6,13 +6,7 @@ int main(void) {
   float smc;
   string x, y, eachword1, eachword2;
   list<string> l1, l2;
-  cout << "x"
-       << " = ";
-  cin >> x;
-  cout << "y"
-       << " = ";
-  cin >> y;
-  cout << endl;
+  cin >> x >> y;
   stringstream s1(x), s2(y);
   while (s1 >> eachword1) {
     l1.push_back(eachword1);
