@@ -2,8 +2,12 @@
 using namespace std;
 int main(void) {
   map<char, int> m;
+  int i = 0;
   for (char ch = 'a'; ch <= 'z'; ++ch) {
-    m.insert(make_pair('a' + 1, ch));
+    if (i == 10) {
+      break;
+    }
+    m.insert({'a' + ch, i++});
   }
   char ch;
   cout << "Enter a key:" << endl;
