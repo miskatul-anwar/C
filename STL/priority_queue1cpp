@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+#include <queue>
+using namespace std;
+int main(void) {
+  priority_queue<int> pq;
+  pq.push(1), pq.push(20), pq.push(3), pq.push(4), pq.push(5);
+  cout << "The Top element is: " << pq.top()
+       << endl; // Prints the largest element
+  cout << "The size of priority queue is: " << pq.size() << endl;
+  return 0;
+}
+
