@@ -17,11 +17,62 @@ int main(void) {
   }
   fclose(x);
 
-  FILE *y = fopen("oldmast.txt", "r");
-  string each;
-  char line;
-  while ((getline(cin, y))) {
-    cout << line << " ";
+  // Open "oldmast.txt" for reading
+  FILE *F = fopen("oldmast.txt", "r");
+  if (F == NULL) {
+    perror("Error opening oldmast.txt");
+    return 1;
   }
+
+  // Open "trans.txt" for reading
+  FILE *X = fopen("trans.txt", "r");
+  if (X == NULL) {
+    perror("Error opening trans.txt");
+    return 1;
+  }
+
+  // Open "log.txt" for writing
+  FILE *logFile = fopen("log.txt", "w");
+  if (logFile == NULL) {
+    perror("Error opening log.txt");
+    return 1;
+  }
+
+  // Read data from "oldmast.txt" and "trans.txt"
+  map<int, double> oldMastData, transData;
+  int accountNumber;
+  double balance;
+
+  // Read data from "oldmast.txt"
+  while (fscanf(F, "%d %lf", &accountNumber, &balance) != EOF) {
+    oldMastData[accountNumber] = balance;
+  }
+  fclose(F);
+
+  // Read data from "trans.txt"
+  while (fscanf(X, "%d %lf", &accountNumber, &balance) != EOF) {
+    transData[accountNumber] += balance;
+  }
+  fclose(X);
+
+  // Compare and process data
+  for (auto it = oldMastData.begin(); it != oldMastData.end(); it++) {
+    accountNumber = it->first;
+    if (transData.find(accountNumber) != transData.end()) {
+      double newBalance = it->second + transData[accountNumber];
+      printf("Account %d: Old Balance=%.2lf, New Balance=%.2lf\n",
+             accountNumber, it->second, newBalance);
+      fprintf(logFile, "Account %d: Old Balance=%.2lf, New Balance=%.2lf\n",
+              accountNumber, it->second, newBalance);
+    } else {
+      printf("Account %d not found in transaction data.\n", accountNumber);
+      fprintf(logFile, "Account %d not found in transaction data.\n",
+              accountNumber);
+    }
+  }
+
+  // Close log file
+  fclose(logFile);
+
   return 0;
 }

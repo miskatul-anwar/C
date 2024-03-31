@@ -1,0 +1,4 @@
+Account 100: Old Balance=348.17, New Balance=375.31
+Account 300: Old Balance=27.19, New Balance=89.30
+Account 500 not found in transaction data.
+Account 700: Old Balance=-14.22, New Balance=66.56
