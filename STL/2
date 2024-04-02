@@ -1,0 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(void) {
+  map<int, float> oldMastData, transData;
+  FILE *oldmast = fopen("oldmast.txt", "r");
+  FILE *trans = fopen("trans.txt", "r");
+}
