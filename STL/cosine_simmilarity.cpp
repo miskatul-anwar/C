@@ -1,21 +1,16 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-// Function to calculate cosine similarity between two strings
 double cosineSimilarity(const string &str1, const string &str2) {
-  // Convert strings into vectors of characters
-  vector<int> vec1(256, 0); // Assuming ASCII characters
+  vector<int> vec1(256, 0);
   vector<int> vec2(256, 0);
 
-  // Count character occurrences in the first string
   for (char c : str1)
     vec1[c]++;
 
-  // Count character occurrences in the second string
   for (char c : str2)
     vec2[c]++;
 
-  // Calculate the dot product of the vectors
   double dotProduct = 0;
   double magnitude1 = 0;
   double magnitude2 = 0;
@@ -25,11 +20,9 @@ double cosineSimilarity(const string &str1, const string &str2) {
     magnitude2 += vec2[i] * vec2[i];
   }
 
-  // Calculate the magnitudes
   magnitude1 = sqrt(magnitude1);
   magnitude2 = sqrt(magnitude2);
 
-  // Calculate the cosine similarity
   double cosineSimilarity = dotProduct / (magnitude1 * magnitude2);
 
   return cosineSimilarity;
