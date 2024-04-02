@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
     EXIT_FAILURE;
   }
   butterfly(size, f);
+  f.close();
   EXIT_SUCCESS;
 }
 
