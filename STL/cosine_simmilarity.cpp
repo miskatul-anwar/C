@@ -25,8 +25,8 @@ double cosineSimilarity(const string &str1, const string &str2) {
 }
 
 int main() {
-  string str1 = "abc";
-  string str2 = "bcd";
+  string str1 = "the best data science course";
+  string str2 = "data science is popular";
 
   double similarity = cosineSimilarity(str1, str2);
 

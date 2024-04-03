@@ -1,40 +1,39 @@
-#include <cmath>
-#include <iostream>
+#include "bits/stdc++.h"
 using namespace std;
-
-double cosineSimilarity(string str1, string str2) {
-  // Calculate the dot product of the vectors
-  double dotProduct = 0.0;
-  for (int i = 0; i < str1.length(); i++) {
-    if (str2[i] != ' ') {
-      dotProduct += str1[i] * str2[i];
+int main(void) {
+  string doc1 = "the best data science course",
+         doc2 = "data science is popular", each1, each2;
+  vector<string> words1, words2;
+  stringstream ss1(doc1), ss2(doc2);
+  list<string> l1, l2;
+  while (ss1 >> each1)
+    words1.push_back(each1);
+  while (ss2 >> each2)
+    words2.push_back(each2);
+  set<string> set1;
+  for (int i = 0; i < words1.size(); i++)
+    set1.insert(words1[i]);
+  for (int i = 0; i < words2.size(); i++)
+    set1.insert(words2[i]);
+  vector<int> D1(set1.size(), 0), D2(set1.size(), 0);
+  for (const string &i : words1) {
+    auto it = find(set1.begin(), set1.end(), i);
+    if (it != set1.end()) {
+      int in = distance(set1.begin(), it);
+      D1[in]++;
     }
   }
-
-  // Calculate the magnitude of the vectors
-  double mag1 = 0.0, mag2 = 0.0;
-  for (int i = 0; i < str1.length(); i++) {
-    if (str1[i] != ' ') {
-      mag1 += pow(str1[i], 2);
+  for (const string &i : words2) {
+    auto it = find(set1.begin(), set1.end(), i);
+    if (it != set1.end()) {
+      int in = distance(set1.begin(), it);
+      D1[in]++;
     }
   }
-  for (int i = 0; i < str2.length(); i++) {
-    if (str2[i] != ' ') {
-      mag2 += pow(str2[i], 2);
-    }
-  }
-
-  // Calculate the cosine similarity
-  double cosineSimilarity = dotProduct / sqrt(mag1 * mag2);
-
-  return cosineSimilarity;
-}
-
-int main() {
-  string str1, str2;
-  cout << "Enter two strings: ";
-  getline(cin, str1), getline(cin, str2);
-  cout << "Cosine similarity of \"" << str1 << "\" and \"" << str2
-       << "\" is: " << cosineSimilarity(str1, str2) << endl;
-  return 0;
+  int dot_product = inner_product(D1.begin(), D1.end(), D2.begin(), 0);
+  double magnitude1 = sqrt(inner_product(D1.begin(), D1.end(), D1.begin(), 0));
+  double magnitude2 = sqrt(inner_product(D2.begin(), D2.end(), D2.begin(), 0));
+  double cosine = dot_product / (magnitude1 * magnitude2);
+  cout << "cosine: " << cosine << endl;
+  EXIT_SUCCESS;
 }
