@@ -27,7 +27,7 @@ int main(void) {
     auto it = find(set1.begin(), set1.end(), i);
     if (it != set1.end()) {
       int in = distance(set1.begin(), it);
-      D1[in]++;
+      D2[in]++;
     }
   }
   int dot_product = inner_product(D1.begin(), D1.end(), D2.begin(), 0);
