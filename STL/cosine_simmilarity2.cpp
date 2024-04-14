@@ -18,14 +18,14 @@ int main(void) {
   vector<int> D1(set1.size(), 0), D2(set1.size(), 0);
   for (const string &i : words1) {
     auto it = find(set1.begin(), set1.end(), i);
-    if (it != set1.end()) {
+    if (find(set1.begin(), set1.end(), i) != set1.end()) {
       int in = distance(set1.begin(), it);
       D1[in]++;
     }
   }
   for (const string &i : words2) {
     auto it = find(set1.begin(), set1.end(), i);
-    if (it != set1.end()) {
+    if (find(set1.begin(), set1.end(), i) != set1.end()) {
       int in = distance(set1.begin(), it);
       D2[in]++;
     }

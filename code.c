@@ -1,7 +1,6 @@
 #include "stdio.h"
 int main(void) {
-  int c;
-  int c;
-  printf("%\n", c);
+  int c = '0';
+  printf("%c\n", c);
   return 0;
 }
