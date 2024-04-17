@@ -1,6 +1,2 @@
-#include<stdio.h>
-int main()
-{
-    int row =5, col =3;
-    
-}
+#include <stdio.h>
+int main() { int row = 5, col = 3; }
