@@ -28,14 +28,10 @@ int main(void) {
   while (count < x) {
     for (i = 0; i < x - count; i++) {
       if (*(array + i) > *(array + i + 1)) {
-        int temp = *(array + i);
-        *(array + i) = *(array + i + 1);
-        *(array + i + 1) = temp;
-      } else {
-        continue;
+        swap(array[i], array[i + 1]);
       }
+      count++;
     }
-    count++;
   }
   cout << endl << "| ";
   for (i = 0; i < x; i++) {
