@@ -11,7 +11,7 @@ int main(void) {
     EXIT_FAILURE;
   }
   X(10, f);
-  system("bat X/pattern.txt");
+  system("micro X/pattern.txt");
   EXIT_SUCCESS;
 }
 void X(int size, fstream &f) {
