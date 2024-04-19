@@ -1,21 +1,22 @@
 #include "bits/stdc++.h"
 using namespace std;
 namespace fs = filesystem;
-void X(int size, fstream &f);
 int main(void) {
   fs::create_directory("X");
   fs::path path_to_pattern("X/pattern.txt");
   fstream f(path_to_pattern, ios::out);
   if (!f.is_open()) {
     cout << "Error: unable to open file" << endl;
-    EXIT_FAILURE;
+    return 1;
   }
-  X(10, f);
-  system("micro X/pattern.txt");
-  EXIT_SUCCESS;
-}
-void X(int size, fstream &f) {
-  for (int i = 0; i < size; ++i) {
+  for (int i = 0; i < 10; ++i) {
     f << "X";
   }
+  f.seekg(0, ios::beg);
+  string pattern;
+  while (getline(f, pattern)) {
+    cout << pattern << endl;
+  }
+  f.close();
+  return 0;
 }
