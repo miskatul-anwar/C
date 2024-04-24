@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> primeFactors(int number);
+int main(void) {}
+
+vector<int> primeFactors(int number) {
+  vector<int> primeFactors;
+  int it = 0;
+  while (!number % 2) {
+  }
+}
