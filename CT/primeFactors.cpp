@@ -2,7 +2,6 @@
 using namespace std;
 
 vector<int> primeFactors(int number);
-bool kSmooth(vector<int> &v, int k);
 int main(void) {
   int num = 12;
   vector<int> v = primeFactors(num);
@@ -31,4 +30,3 @@ vector<int> primeFactors(int number) {
   }
   return primeFactors;
 }
-bool kSmooth(vector<int> &v, int k);
