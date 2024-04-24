@@ -14,7 +14,6 @@ int main(void) {
       temp = stoi(line.substr(0, pos));
       line.erase(0, pos + 1);
     }
-    oldmast[temp] = -1;
     oldmast[temp] = stof(line);
   }
   f.close();
