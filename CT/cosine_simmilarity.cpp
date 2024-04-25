@@ -46,4 +46,3 @@ double cosine_similarity(const string &d1, const string &d2) {
   double cosSim = dotProduct / (sqrt(magnitude1) * sqrt(magnitude2));
   return cosSim;
 }
-
