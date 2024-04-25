@@ -1,24 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string removeDuplicates(string input);
+class Functions {
+public:
+  bool removeDuplicates(string &str) {
+    map<char, int> m;
+    for (auto it : str) {
+      m[it]++;
+    }
+    str.clear();
+    for (auto it : m) {
+      if (it.second == 1) {
+        str += it.first;
+      }
+    }
+    return str != "\0";
+  }
+};
 
 int main(void) {
-  string output = removeDuplicates("azxxzy");
-  cout << output << endl;
+  Functions f;
+  string input;
+  getline(cin, input);
+  f.removeDuplicates(input) ? cout << input << endl
+                            : cout << "Empty String" << endl;
   return 0;
-}
-
-string removeDuplicates(string input) {
-  map<char, int> m;
-  string output;
-  for (auto it : input) {
-    m[it]++;
-  }
-  for (auto it : m) {
-    if (it.second == 1) {
-      output += it.first;
-    }
-  }
-  return output;
 }
