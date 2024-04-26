@@ -1,7 +1,6 @@
 #include "bits/stdc++.h"
 using namespace std;
 int main(void) {
-  // Data structures for tracking the changes of the files.
   map<int, float> oldmast;
   map<int, float> trans;
   vector<int> log;
@@ -17,6 +16,7 @@ int main(void) {
     oldmast[temp] = stof(line);
   }
   f.close();
+
   ifstream g("trans.txt");
   while (getline(g, line)) {
     size_t pos = 0;
@@ -37,7 +37,6 @@ int main(void) {
   }
   g.close();
 
-  // Now, printing the final output
   ofstream h("newmast.txt");
   ofstream i("log.txt");
   for (auto it : trans) {
