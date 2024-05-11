@@ -4,7 +4,7 @@ using namespace std;
 double cosine_similarity(const string &d1, const string &d2);
 
 int main(void) {
-  string d1 = "abc abc duf lsfl", d2 = "data abc science is popular";
+  string d1 = "the best data science course", d2 = "data science is popular";
   cout << cosine_similarity(d1, d2) << endl;
   return 0;
 }

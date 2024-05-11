@@ -1,46 +1,39 @@
 #include "bits/stdc++.h"
 using namespace std;
-
-vector<int> primeFactors(int number);
-bool isKsmooth(int number, int k);
-
-int main(void) {
-  int x, k;
-  cin >> x >> k;
-  if (isKsmooth(x, k)) {
-    cout << "YES" << endl;
-  } else {
-    cout << "NO" << endl;
-  }
-  return 0;
-}
-
-vector<int> primeFactors(int number) {
-  vector<int> primeSeries;
-  while (number % 2 == 0) {
-    primeSeries.push_back(2);
-    number /= 2;
-  }
-  int it = 3;
-  while (number > 1 and it * it <= number) {
-    if (number % it == 0) {
-      primeSeries.push_back(it);
-    } else {
-      it += 2;
+int main()
+{
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    string s1, s2;
+    cin >> s1 >> s2;
+    map<char, int> m1, m2;
+    for (auto it : s1)
+    {
+      m1[it]++;
     }
-  }
-  if (number > 1) {
-    primeSeries.push_back(number);
-  }
-  return primeSeries;
-}
-
-bool isKsmooth(int number, int k) {
-  vector<int> primeSeries = primeFactors(number);
-  for (auto it : primeSeries) {
-    if (it > k) {
-      return false;
+    for (auto it : s2)
+    {
+      m2[it]++;
     }
+    bool s_1 = 0, l_1 = 0, m_1 = 0, l_2 = 0, m_2 = 0, s_2 = 0;
+    if (s1.find("M") != string::npos)
+    {
+      m_1 = true;
+    }
+    if (s1.find("L") != string::npos)
+    {
+      l_1 = true;
+    }
+    if (s1.find("S") != string::npos)
+    {
+      s_1 = true;
+    }
+    if (s2.find("M") != string::npos)
+    {
+      m_2 = true;
+    }
+    if (
   }
-  return true;
 }
