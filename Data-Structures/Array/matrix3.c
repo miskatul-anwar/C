@@ -27,7 +27,7 @@ void main() {
     for (j = 0; j < 2; j++) {
       c[i][j] = 0;
       for (int k = 0; k < 2; k++) {
-        c[i][j] = c[i][j] + a[i][k] * b[k][j];
+        c[i][j] += a[i][k] * b[k][j];
       }
       printf(" %d ", c[i][j]);
     }
